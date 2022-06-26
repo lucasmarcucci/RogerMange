@@ -5,7 +5,7 @@ require("./mongo-init");
 
 const app  = express();
 app.use(require('./routes/routes'));
-const port = 3030;
+const port = 3020;
 app.use(express.json());
 
 

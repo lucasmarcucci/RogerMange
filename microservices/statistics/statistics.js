@@ -5,13 +5,9 @@ require("./mongo-init");
 
 
 const app  = express();
-const port = 3020;
+app.use(require('./routes/routes'));
+const port = 3030;
 app.use(express.json());
-
-// get all order for the restaurant
-app.get("/stats/:id", (req, res) => {
-
-});
 
 
 // PORT

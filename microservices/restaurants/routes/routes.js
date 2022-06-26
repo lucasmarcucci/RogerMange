@@ -5,7 +5,7 @@ const Restaurant = require("../Restaurant");
 
 // RESTAURANTS
 // add restaurant
-app.post("/restaurant", (req, res) => {
+router.post("/restaurant", (req, res) => {
   var newRestaurant = new Restaurant({
     restaurantID: req.body.restaurantID,
     image: req.body.image,
@@ -26,7 +26,7 @@ app.post("/restaurant", (req, res) => {
 });
 
 // get all restaurant
-app.get("/restaurants", (req, res) => {
+router.get("/restaurants", (req, res) => {
   Restaurant.find()
     .then((restaurants) => {
       if (restaurants.length !== 0) {
@@ -41,7 +41,7 @@ app.get("/restaurants", (req, res) => {
 });
 
 // get one restaurant by id
-app.get("/restaurant/:id", (req, res) => {
+router.get("/restaurant/:id", (req, res) => {
   Restaurant.findById(req.params.id)
     .then((restaurant) => {
       if (restaurant) {
@@ -56,7 +56,7 @@ app.get("/restaurant/:id", (req, res) => {
 });
 
 // delete one restaurant by id
-app.delete("/restaurant/:id", (req, res) => {
+router.delete("/restaurant/:id", (req, res) => {
   Restaurant.findByIdAndDelete(req.params.id)
     .then((restaurant) => {
       if (restaurant) {
@@ -71,7 +71,7 @@ app.delete("/restaurant/:id", (req, res) => {
 });
 
 // update one restaurant by id
-app.put("/restaurants/update/:id", (req, res) => {
+router.put("/restaurants/update/:id", (req, res) => {
   const filter = { _id: req.params.id };
   const update = {
     $set: {
@@ -96,7 +96,7 @@ app.put("/restaurants/update/:id", (req, res) => {
 
 // ARTICLES
 // add one article by id
-app.put("/restaurants/update/articles/:id", (req, res) => {
+router.put("/restaurants/update/articles/:id", (req, res) => {
   const filter = { _id: req.params.id };
   const update = { $push: { articles: req.body.articles } };
   Restaurant.findByIdAndUpdate(filter, update)
@@ -113,7 +113,7 @@ app.put("/restaurants/update/articles/:id", (req, res) => {
 });
 
 // delete one article by id
-app.put("/restaurants/delete/articles/:id", (req, res) => {
+router.put("/restaurants/delete/articles/:id", (req, res) => {
   const update = {
     $pull: {
       articles: { _id: req.body.id },
