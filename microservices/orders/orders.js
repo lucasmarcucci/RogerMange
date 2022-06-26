@@ -5,9 +5,10 @@ require("./mongo-init");
 
 const Order = require("./Order");
 
-const app = express();
+const app  = express();
 const port = 3010;
 app.use(express.json());
+
 
 // add order
 app.post("/order", (req, res) => {
@@ -56,6 +57,22 @@ app.get("/order/:id", (req, res) => {
     .then((order) => {
       if (order) {
         res.json(order);
+      } else {
+        res.status(404).send("Orders not found");
+      }
+    })
+    .catch((err) => {
+      res.status(500).send("Internal Server Error!");
+    });
+});
+
+// get all order for one restaurant
+app.get("/restaurantorders/:id", (req, res) => {
+  console.log(req.params.id)
+  Order.find({ "restaurant_id": req.params.id})
+    .then((orders) => {
+      if (orders.length !== 0) {
+        res.json(orders);
       } else {
         res.status(404).send("Orders not found");
       }
@@ -115,5 +132,5 @@ app.put("/order/update/:id", (req, res) => {
 
 // PORT
 app.listen(port, () => {
-  console.log(`Up and Running on port ${port} - This is Restaurant service`);
+  console.log(`Up and Running on port ${port} - This is Order service`);
 });
