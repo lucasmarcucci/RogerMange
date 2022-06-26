@@ -2,10 +2,12 @@ const express = require("express");
 const router = express.Router();
 
 const Restaurant = require("../Restaurant");
+var bodyParser = require('body-parser');
+var jsonParser = bodyParser.json();
 
 // RESTAURANTS
 // add restaurant
-router.post("/restaurant", (req, res) => {
+router.post("/restaurant", jsonParser,(req, res) => {
   var newRestaurant = new Restaurant({
     restaurantID: req.body.restaurantID,
     image: req.body.image,

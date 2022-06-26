@@ -2,11 +2,13 @@ const express = require("express");
 const router = express.Router();
 
 const Order = require("../Order");
+var bodyParser = require('body-parser');
+var jsonParser = bodyParser.json();
 
 // add order
-router.post("/order", (req, res) => {
+router.post("/order", jsonParser,(req, res) => {
+  console.log(req.body)
   var newOrder = new Order({
-    id: req.body.id,
     restaurant_id: req.body.restaurant_id,
     user_id: req.body.user_id,
     deliver_id: req.body.deliver_id,
