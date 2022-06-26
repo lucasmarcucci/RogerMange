@@ -2,10 +2,6 @@ const mongoose = require('mongoose');
 
 
 const articlesSchema = mongoose.Schema({
-  article_id: {
-    type: String,
-    require: false
-  },
   article_image: {
      type: String,
      require: false
@@ -29,21 +25,17 @@ const articlesSchema = mongoose.Schema({
 })
 
 const restaurantSchema = mongoose.Schema({
-   restaurantID: {
-     type: String,
-     require: true
-   },
    image: {
       type: String,
       require: true
    },
    name: {
        type: String,
-       require: false
+       require: true
    },
    address: {
        type: String,
-       require: false
+       require: true
    },
    articles: [articlesSchema]
     
