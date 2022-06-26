@@ -1,4 +1,4 @@
-const express    = require('express');
+const express = require('express');
 
 // Connect
 require('./mongo-init');
@@ -9,6 +9,8 @@ const app  = express();
 const port = 3000;
 app.use(express.json())
 
+
+// RESTAURANTS
 app.post('/restaurant', (req, res) => {
     var newRestaurant = new Restaurant({
       restaurantID: req.body.restaurantID,
@@ -24,7 +26,7 @@ app.post('/restaurant', (req, res) => {
         throw err
       }
     })
-})
+});
 
 app.get('/restaurants', (req, res) => {
   Restaurant.find().then((restaurants) => {
@@ -36,7 +38,8 @@ app.get('/restaurants', (req, res) => {
    }).catch((err) => {
         res.status(500).send('Internal Server Error!');
    });
-})
+});
+
 app.get('/restaurant/:id', (req, res) => {
   Restaurant.findById(req.params.id).then((restaurant) => {
        if (restaurant) {
@@ -47,7 +50,8 @@ app.get('/restaurant/:id', (req, res) => {
     }).catch((err) => {
        res.status(500).send('Internal Server Error!');
    });
-})
+});
+
 app.delete('/restaurant/:id', (req, res) => {
   Restaurant.findByIdAndDelete(req.params.id).then((restaurant) 	=> {
        if (restaurant) {
@@ -59,6 +63,38 @@ app.delete('/restaurant/:id', (req, res) => {
         res.status(500).send('Internal Server Error!');
    });
 });
+
+app.put('/restaurants/update/:id', (req, res) => {
+  const filter = {"_id": req.params.id}
+  const update = {$set: {"restaurantID": req.body.restaurantID, "image":  req.body.image, "name": req.body.name, "address": req.body.address} };
+  Restaurant.findByIdAndUpdate(filter, update).then((restaurant) => {
+    if (restaurant) {
+       res.json(restaurant)
+    } else {
+        res.status(404).send('Restaurants not found');
+    }
+ }).catch((err) => {
+    res.status(500).send('Internal Server Error!');
+});
+});
+
+
+
+// AERICLES
+app.put('/restaurants/update/articles/:id', (req, res) => {
+  const filter = {"_id": req.params.id}
+  const update = {$push: {"articles": req.body.articles}};
+  Restaurant.findByIdAndUpdate(filter, update).then((restaurant) => {
+    if (restaurant) {
+       res.json(restaurant)
+    } else {
+        res.status(404).send('Restaurants not found');
+    }
+ }).catch((err) => {
+    res.status(500).send('Internal Server Error!');
+});
+});
+
 app.listen(port, () => {
     console.log(`Up and Running on port ${port} - This is Restaurant service`);
 })
