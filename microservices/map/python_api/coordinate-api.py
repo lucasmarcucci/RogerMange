@@ -21,9 +21,13 @@ def get_coordinates():
 
     for i in json_data:
         address = i['address']
-        location = geolocator.geocode(address)
-        json_content.append({  "_id" : i['_id'], "name" : i['name'], "address" : i['address'], "latitude" : location.latitude,  "longitude" : location.longitude })
+        try:
+            location = geolocator.geocode(address)
+            json_content.append({  "_id" : i['_id'], "name" : i['name'], "address" : i['address'], "latitude" : location.latitude,  "longitude" : location.longitude })
     
+        except:
+            print("An exception occurred")
+  
     jsonStr = json.dumps(json_content)
     print(json_content)
     return jsonStr
