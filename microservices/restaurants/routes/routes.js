@@ -9,7 +9,6 @@ var jsonParser = bodyParser.json();
 // add restaurant
 router.post("/restaurant", jsonParser,(req, res) => {
   var newRestaurant = new Restaurant({
-    restaurantID: req.body.restaurantID,
     image: req.body.image,
     name: req.body.name,
     address: req.body.address,
