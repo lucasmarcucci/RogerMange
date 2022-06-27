@@ -16,17 +16,17 @@ def get_coordinates():
     json_data    = request.get_json()                     # get the json send by the c# api
     #print(json_data)
     #file_path    = json_data['Path']                      # get the path send by the c# api
-    coord = []
     geolocator = Nominatim(user_agent="myApp")
+    json_content = []
+
     for i in json_data:
         address = i['address']
         location = geolocator.geocode(address)
-        # coord.append([location.latitude, location.longitude])
-        if address is not None:
-            print((location.latitude, location.longitude))
+        json_content.append({  "_id" : i['_id'], "name" : i['name'], "address" : i['address'], "latitude" : location.latitude,  "longitude" : location.longitude })
     
-    #json_content = { "latitude" : location.latitude,  "longitude" : location.longitude } # write the content and the vector to a json
-    return "json_content"
+    jsonStr = json.dumps(json_content)
+    print(json_content)
+    return jsonStr
 
 
 if __name__ == "__main__":

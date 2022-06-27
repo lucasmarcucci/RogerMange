@@ -2,7 +2,7 @@
   "name": "map",
   "version": "1.0.0",
   "description": "",
-  "main": "map.js",
+  "main": "add_point.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
