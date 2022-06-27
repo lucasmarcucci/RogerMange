@@ -9,6 +9,7 @@ tiles.addTo(map);
 var bigIcon = L.icon({
     iconUrl:      "point.png",
     iconSize:     [40, 50], // size of the icon
+    popupAnchor:  [0, -40],
 });
 
 // GET POINT
