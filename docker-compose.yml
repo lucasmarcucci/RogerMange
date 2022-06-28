@@ -49,7 +49,16 @@ services:
     image: node-app
     environment: 
       - APPID=2222
-    
+  
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    restart: unless-stopped
+    environment:
+      PMA_HOST: mysql
+    depends_on:
+      - mysql
+    ports:
+      - "8068:80"
 
 # Names our volume
 volumes:

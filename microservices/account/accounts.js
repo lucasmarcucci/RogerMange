@@ -50,6 +50,7 @@ app.delete("/register/:id", (req, res) =>
     .catch((err) => console.log(err))
 );
 
+// update one user by ID
 app.put("/register/:id", (req, res) =>
   Account.update(
     {
@@ -89,12 +90,11 @@ app.post("/register", (req, res) => {
   var client_address = req.body.client_address;
   var client_referralcode = req.body.client_referralcode;
   var client_password = req.body.client_password;
-  var created_at = req.body.created_at;
 
   var query = `
-    INSERT INTO clients 
-    (client_firstname,client_lastname,client_email,client_phonenumber,client_address,client_referralcode,client_password,created_at)
-    VALUES ("${client_firstname}", "${client_lastname}", "${client_email}", "${client_phonenumber}", "${client_address}", "${client_referralcode}", "${client_password}", "${created_at}")
+    INSERT INTO accounts 
+    (client_firstname, client_lastname, client_email, client_phonenumber, client_address, client_referralcode, client_password)
+    VALUES ("${client_firstname}", "${client_lastname}", "${client_email}", "${client_phonenumber}", "${client_address}", "${client_referralcode}", "${client_password}")
     `;
 
   database.query(query, function (error, results) {
