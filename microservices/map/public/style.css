@@ -1,0 +1,19 @@
+#map {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+.myCenter {
+  text-align: center;
+}
+.myBig {
+  font-size: 2em;
+}
+.myMiddle {
+  font-size: 1.2em;
+}
+.myLittle {
+  font-size: 1.5em;
+}
