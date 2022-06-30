@@ -23,7 +23,7 @@ export default {
     },
     mounted() {
         axios
-        .get("http://localhost:8080/restaurants")
+        .get("http://localhost:8081/one/restaurants")
         .then(response => {
             this.restaurants = response.data
             console.log(this.restaurants)

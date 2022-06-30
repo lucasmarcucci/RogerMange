@@ -30,6 +30,7 @@
 </template>
 
 <script>
+
 import axios from "axios";
 
 export default {
@@ -48,16 +49,16 @@ export default {
     methods: {
         HandleForm() {
             const form_data = {
-                firstname: this.firstname,
-                lastname: this.lastname,
-                email: this.email,
-                phone_number: this.phone_number,
-                password: this.password,
-                confirm_password: this.confirm_password,
+                client_firstname: this.firstname,
+                client_lastname: this.lastname,
+                client_email: this.email,
+                client_phonenumber: this.phone_number,
+                // client_address: this.address,
+                client_password: this.password,
             }
 
             axios
-            .post("http://localhost:8080/register/", form_data)
+            .post("http://localhost:8081/two/register/", form_data)
             .then(response => {
                 console.log(response)
             })

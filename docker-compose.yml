@@ -55,8 +55,8 @@ services:
     restart: unless-stopped
     environment:
       PMA_HOST: mysql
-    depends_on:
-      - mysql
+    # depends_on:
+    #   - mysql
     ports:
       - "8068:80"
 
