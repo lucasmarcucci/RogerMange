@@ -8,7 +8,7 @@
             <div class="links--right">
                 <router-link to="/signup"><span class="society--name">Inscription</span></router-link>
                 <router-link to="/signin"><span class="society--name">Connexion</span></router-link>
-                <!-- <router-link to="/"><span class="society--name">Panier</span></router-link> -->
+                <!-- <router-link to="/cart"><span class="society--name">Panier</span></router-link> -->
             </div>
         </div>
     </div>

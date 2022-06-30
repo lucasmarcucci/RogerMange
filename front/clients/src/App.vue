@@ -1,11 +1,12 @@
 <template>
-  <nav>
-    <router-view/>
-    <!-- <router-link to="/">Home</router-link> -->
-    <!-- <router-link to="/about">About</router-link> -->
-    <!-- <RestaurantView/> -->
-  </nav>
-  <!-- <router-view/> -->
+
+  <div id="app">
+      <router-view/>
+      <!-- <router-link to="/">Home</router-link> -->
+      <!-- <router-link to="/about">About</router-link> -->
+      <!-- <RestaurantView/> -->
+  </div>
+
 </template>
 
 <script>
