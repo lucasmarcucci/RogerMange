@@ -1,35 +1,39 @@
 <template>
   
     <div class="restaurant--row">
-        <RestaurantCard/>
-        <RestaurantCard/>
-        <RestaurantCard/>
+        <RestaurantCard :key="index" v-for="(restaurant, index) in restaurants" :info_restaurant="restaurant" />
     </div>
 
 </template>
 
 <script>
 
-// import { mounted } from 'vue';
 import RestaurantCard from './RestaurantCard.vue';
-// import { response } from 'express';
 import axios from "axios";
 
 export default {
     name: "RestaurantRow",
+    data() {
+        return {
+            restaurants: null
+        }
+    },
     components: {
         RestaurantCard,
     },
-
-    created() {
-        axios.get('http://localhost:8080/restaurants')
+    mounted() {
+        axios
+        .get("http://localhost:8080/restaurants")
         .then(response => {
-            this.restaurants = response
-            console.log(response)
+            this.restaurants = response.data
+            console.log(this.restaurants)
         })
         .catch(e => {
-             this.errors.push(e)
+                this.errors.push(e)
         })
+    },
+    props: {
+        all_restaurants: Object
     }
 }
 </script>
@@ -41,6 +45,7 @@ export default {
     align-items: center;
     justify-content: space-around;
     margin-bottom: 40px;
+    flex-direction: row;
 }
 
 </style>

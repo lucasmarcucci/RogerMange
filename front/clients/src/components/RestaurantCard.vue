@@ -1,17 +1,20 @@
 <template>
   
-    <div class="restaurant--card">
+    <router-link class="restaurant--card" :to="{name: 'restaurant', params: {name: info_restaurant.name, id: info_restaurant._id }}">
         <div class="restaurant--image"></div>
         <div class="restaurant--informations">
-            <p class="name">Burger King</p>
+            <p class="name">{{ info_restaurant.name }}</p>
         </div>
-    </div>
+    </router-link>
 
 </template>
 
 <script>
 export default {
     name: "RestaurantCard",
+    props: {
+        info_restaurant: Object
+    },
 }
 </script>
 

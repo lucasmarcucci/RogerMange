@@ -1,15 +1,14 @@
 <template>
     <div class="menu">
-        <h2>restaurant</h2>
+        <h2>Articles</h2>
         <div class="menu-group">
             <div class="menu-item">
                 <img class="menu-item-image" src="../assets/images/b1.png" alt="Bruschetta">
                 <div class="menu-item-text">
                     <h3 class="menu-item-heading">
-                        <span class="menu-item-name">Burger</span>
-                        <span class="menu-item-price">7€</span>
+                        <span class="menu-item-name">{{ info_product.article_name }}</span>
+                        <span class="menu-item-price">${{ info_product.article_price }}</span>
                     </h3>
-                    <p class="menu-item-description">Du pain, de la viande de boeuf, des oignons</p>
                     <span><img src="../assets/images/plus.png" class="add-btn"></span>
                 </div>
             </div>
@@ -18,8 +17,17 @@
 </template>
 
 <script>
+
 export default {
-    name: "ProductCard"
+    name: "ProductCard",
+    data() {
+        return {
+            products: null
+        }
+    },
+    props: {
+        info_product: Object
+    },
 }
 </script>
 

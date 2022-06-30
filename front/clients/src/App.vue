@@ -1,9 +1,7 @@
 <template>
   <nav>
     <router-view/>
-    <router-link to="/">Home</router-link>
-    <router-link :to="{name: 'restaurant', params: {name: 'Mcdo'}}">Mcdo</router-link>
-    <router-link :to="{name: 'restaurant', params: {name: 'Burger King'}}">Burger King</router-link>
+    <!-- <router-link to="/">Home</router-link> -->
     <!-- <router-link to="/about">About</router-link> -->
     <!-- <RestaurantView/> -->
   </nav>

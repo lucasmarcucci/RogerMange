@@ -66,7 +66,7 @@ router.put("/register/:id", (req, res) =>
 );
 
 //create a new account
-router.post("/register", jsonParser,async (req, res) => {
+router.post("/register", jsonParser, async (req, res) => {
   encryptedPassword = await bcrypt.hash(req.body.client_password, 10);
   Account.create(
     {

@@ -6,12 +6,9 @@
                 <router-link to="/"><span class="society--name">Roger Mange</span></router-link>
             </div>
             <div class="links--right">
-                <!-- <router-link to="/"><span class="society--name">Inscription</span></router-link>
-                <router-link to="/"><span class="society--name">Connexion</span></router-link>
-                <router-link to="/"><span class="society--name">Panier</span></router-link> -->
-                <a href="" class="navbar--links">Inscription</a>
-                <a href="" class="navbar--links m-left">Connexion</a>
-                <a href="" class="navbar--links m-left">Panier</a>
+                <router-link to="/signup"><span class="society--name">Inscription</span></router-link>
+                <router-link to="/signin"><span class="society--name">Connexion</span></router-link>
+                <!-- <router-link to="/"><span class="society--name">Panier</span></router-link> -->
             </div>
         </div>
     </div>
