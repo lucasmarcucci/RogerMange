@@ -1,4 +1,4 @@
-var mongoDB = 'mongodb://username:password@localhost:27017';
+var mongoDB = 'mongodb://localhost:27017';
 
 const mongoose = require('mongoose');
 mongoose.connect(mongoDB, { 

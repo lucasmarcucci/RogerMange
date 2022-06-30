@@ -13,39 +13,6 @@
                     <span><img src="../assets/images/plus.png" class="add-btn"></span>
                 </div>
             </div>
-            <div class="menu-item">
-                <img class="menu-item-image" src="../assets/images/b1.png" alt="Bruschetta">
-                <div class="menu-item-text">
-                    <h3 class="menu-item-heading">
-                        <span class="menu-item-name">Burger</span>
-                        <span class="menu-item-price">7€</span>
-                    </h3>
-                    <p class="menu-item-description">Du pain, de la viande de boeuf, des oignons</p>
-                    <span><img src="../assets/images/plus.png" class="add-btn"></span>
-                </div>
-            </div>
-            <div class="menu-item">
-                <img class="menu-item-image" src="../assets/images/b1.png" alt="Bruschetta">
-                <div class="menu-item-text">
-                    <h3 class="menu-item-heading">
-                        <span class="menu-item-name">Burger</span>
-                        <span class="menu-item-price">7€</span>
-                    </h3>
-                    <p class="menu-item-description">Du pain, de la viande de boeuf, des oignons</p>
-                    <span><img src="../assets/images/plus.png" class="add-btn"></span>
-                </div>
-            </div>
-            <div class="menu-item">
-                <img class="menu-item-image" src="../assets/images/b1.png" alt="Bruschetta">
-                <div class="menu-item-text">
-                    <h3 class="menu-item-heading">
-                        <span class="menu-item-name">Burger</span>
-                        <span class="menu-item-price">7€</span>
-                    </h3>
-                    <p class="menu-item-description">Du pain, de la viande de boeuf, des oignons</p>
-                    <span><img src="../assets/images/plus.png" class="add-btn"></span>
-                </div>
-            </div>
         </div>
     </div>
 </template>
@@ -61,13 +28,6 @@ export default {
   .menu {
     font-family: "Inter", sans-serif;
     font-size: 14px;
-  }
-  
-  .menu-group {
-    display: grid;
-    grid-template-columns: 2fr;
-    gap: 1.5em;
-    padding: 1.5em 0;
   }
   
   .menu-item {
@@ -107,21 +67,6 @@ export default {
     width: 20px;
     height: 20px;
     cursor: pointer;
-  }
-  
-  @media screen and (min-width: 992px) {
-    .menu {
-      font-size: 16px;
-    }
-  
-    .menu-group {
-      grid-template-columns: repeat(3, 1fr);
-    }
-  
-    .menu-item-image {
-      width: 125px;
-      height: 125px;
-    }
   }
 
 </style>

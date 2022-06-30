@@ -5,3 +5,5 @@ microservices/map/node_modules/
 microservices/orders/node_modules/
 microservices/restaurants/node_modules/
 microservices/statistics/node_modules/
+front/clients/node_modules/
+front/restaurants/node_modules/

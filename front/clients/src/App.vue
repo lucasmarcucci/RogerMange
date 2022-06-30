@@ -1,5 +1,6 @@
 <template>
   <nav>
+    <router-view/>
     <router-link to="/">Home</router-link>
     <router-link :to="{name: 'restaurant', params: {name: 'Mcdo'}}">Mcdo</router-link>
     <router-link :to="{name: 'restaurant', params: {name: 'Burger King'}}">Burger King</router-link>
@@ -30,24 +31,18 @@ export default {
 
 
 <style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+
+body {
+  margin: 0;
+  padding: 0;
 }
 
-nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
+#app {
+  box-sizing: border-box;
+  // font-family: Avenir, Helvetica, Arial, sans-serif;
+  // -webkit-font-smoothing: antialiased;
+  // -moz-osx-font-smoothing: grayscale;
+  // text-align: center;
+  // color: #2c3e50;
 }
 </style>
