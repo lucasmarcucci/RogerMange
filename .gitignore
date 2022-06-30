@@ -1,0 +1,7 @@
+node_modules/
+microservices/account/node_modules/
+microservices/login/node_modules/
+microservices/map/node_modules/
+microservices/orders/node_modules/
+microservices/restaurants/node_modules/
+microservices/statistics/node_modules/
