@@ -35,21 +35,77 @@ services:
     ports:
       - 27017:27017
       
-  nginx_load_balancer:
-    image: nginx
-    volumes:
-      - './nginx/default.conf:/etc/nginx/nginx.conf'
-    ports:
-      - '8080:80'
-  app1:
-    image: node-app
-    environment: 
-      - APPID=1111
-  app2:
-    image: node-app
-    environment: 
-      - APPID=2222
+  # nginx_load_balancer:
+  #   image: nginx
+  #   volumes:
+  #     - './nginx/default.conf:/etc/nginx/nginx.conf'
+  #   ports:
+  #     - '8080:80'
+  # app1:
+  #   image: node-app
+  #   environment: 
+  #     - APPID=1111
+  # app2:
+  #   image: node-app
+  #   environment: 
+  #     - APPID=2222
   
+  # nginx:
+  #   build:
+  #     context: ./nginx
+  #   container_name: nginx
+  #   hostname: nginx
+  #   ports:
+  #     - "8080:8080"
+  #   depends_on:
+  #     - micro_map
+
+  # reverse-proxy:
+  #   image: traefik:latest
+  #   container_name: "traefik"
+  #   restart: always
+  #   command:
+  #     - "--api.insecure=true"
+  #     - "--api.dashboard=true"
+  #     - "--providers.docker=true"
+  #     - "--log.level=DEBUG"
+  #     - "--providers.docker"
+  #     - "--providers.docker.exposedbydefault=false"
+  #     - "--providers.docker.network=web"
+  #     - "--entrypoints.web.address=:80"
+  #   ports:
+  #     - "80:80"
+  #     - "8080:8080"
+  #     - "443:443"
+  #   networks:
+  #     - web
+  #   volumes:
+  #     - "/var/run/docker.sock:/var/run/docker.sock:ro"
+  #   labels:
+  #     - "traefik.enable=true" # <== Enable traefik on itself to view dashboard and assign subdomain to view it
+  #     - "traefik.http.routers.micromap.rule=Host(`monitor.example.com`)" # <== Setting the domain for the dashboard
+  #     - "traefik.http.routers.micromap.service=api@internal" # <== Enabling the api to be a service
+
+  # micromap:
+  #   container_name: micromap
+  #   build:
+  #     context: ./microservices/map
+  #   image: micromap
+  #   networks:
+  #     - web
+  #   ports: 
+  #     - "3040"
+  #   labels:
+  #     - "traefik.enable=true"
+  #     - "traefik.http.routers.micromap.rule=Host(`rogermange.test`)"
+  #     - "traefik.http.routers.micromap.entrypoints=web"
+  #   # volumes: 
+  #   #   - ./microservices/map:/app
+  #   #   - /app/node_modules
+  #   depends_on: 
+  #     - reverse-proxy
+    
+
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
     restart: unless-stopped
@@ -58,9 +114,30 @@ services:
     depends_on:
       - mysql
     ports:
-      - "8068:80"
+      - "8068"
 
+  flask:
+    build: ./microservices/map/python_api/flask
+    container_name: flask
+    restart: always
+    environment: 
+      - APP_NAME=MyFlaskApp
+      - DB_USERNAME=example
+    expose: 
+      - 8181
+    
+  nginx_python:
+    build: ./microservices/map/python_api/nginx
+    container_name: nginx_python
+    restart: always
+    ports: 
+      - "81:81"
+    
 # Names our volume
 volumes:
   my-db:
   my-mongo:
+
+networks:
+  web:
+    external: true

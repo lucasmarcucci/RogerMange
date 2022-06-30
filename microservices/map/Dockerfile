@@ -1,9 +1,10 @@
 FROM node
 
-WORKDIR /rogermange
+WORKDIR /app
 
 COPY package*.json ./
 RUN npm install
 
 COPY . .
-CMD [ "node", "index.js" ]
+
+CMD [ "node", "add_point.js" ]
