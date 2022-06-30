@@ -30,6 +30,8 @@
 </template>
 
 <script>
+import axios from "axios";
+
 export default {
     name: "SignUp",
     data() {
@@ -55,13 +57,13 @@ export default {
             }
 
             axios
-            .get("http://localhost:8080/register/" + this.id)
+            .post("http://localhost:8080/register/", form_data)
             .then(response => {
-                this.products = response.data['articles']
-                console.log(this.products)
+                console.log(response)
             })
             .catch(e => {
-                    this.errors.push(e)
+                // this.errors.push(e)
+                console.log(e)
             })
         }
     }
