@@ -46,13 +46,13 @@ router.delete("/register/:id", (req, res) =>
 router.put("/register/:id", (req, res) =>
   Account.update(
     {
-      client_firstname: req.body.client_firstname,
-      client_lastname: req.body.client_lastname,
+      // client_firstname: req.body.client_firstname,
+      // client_lastname: req.body.client_lastname,
       client_email: req.body.client_email,
-      client_phonenumber: req.body.client_phonenumber,
-      client_address: req.body.client_address,
-      client_referralcode: req.body.client_referralcode,
-      client_password: req.body.client_password,
+      // client_phonenumber: req.body.client_phonenumber,
+      // client_address: req.body.client_address,
+      // client_referralcode: req.body.client_referralcode,
+      // client_password: req.body.client_password,
     },
     {
       where: { id: req.params.id },

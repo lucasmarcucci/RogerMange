@@ -12,19 +12,19 @@
             <label class="profile--label" for="password">Password</label>
             <input class="input--general input--text" v-model="password" id="password" type="password" name="password">
 
-            <label class="profile--label" for="confirm_password">Confirm password</label>
-            <input class="input--general input--text" v-model="confirm_password" id="confirm_password" type="password" name="confirm_password">
+            <!-- <label class="profile--label" for="confirm_password">Confirm password</label>
+            <input class="input--general input--text" v-model="confirm_password" id="confirm_password" type="password" name="confirm_password"> -->
 
             <input class="input--general input--submit" type="submit" name="submit" value="Save changes">
         </form>
         <router-link :to="{name: 'orders', params: {id: user_infos.id }}">See your orders</router-link>
-        <!-- <router-link to="/orders"><span class="society--name">See your orders</span></router-link> -->
     </div>
 
 </template>
 
 <script>
-// import axios from "axios";
+
+import axios from "axios";
 
 export default {
     Name:"ProfileCard",
@@ -32,29 +32,28 @@ export default {
         return {
             email: '',
             password: '',
-            confirm_password: ''
         }
     },
     props: {
         user_infos: Object
     },
-    // methods: {
-    //     HandleForm() {
-    //         const form_data = {
-    //             client_email: this.email,
-    //             client_password: this.password,
-    //         }
+    methods: {
+        HandleForm() {
+            const form_data = {
+                client_email: this.email,
+                // client_password: this.password,
+            }
 
-    //         axios
-    //         .put("http://localhost:8081/two/register/" + this.user_infos, form_data)
-    //         .then(response => {
-    //             console.log(response)
-    //         })
-    //         .catch(e => {
-    //             console.log(e)
-    //         })
-    //     }
-    // }
+            axios
+            .put("http://localhost:8081/two/register/" + this.user_infos.id, form_data)
+            .then(response => {
+                console.log(response)
+            })
+            .catch(e => {
+                console.log(e)
+            })
+        }
+    }
 }
 </script>
 

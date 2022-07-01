@@ -8,7 +8,7 @@
             <div class="links--right">
                 <router-link to="/signup"><span class="links">Register</span></router-link>
                 <router-link to="/signin"><span class="links m-left">Log in</span></router-link>
-                <router-link class="links m-left" :to="{name: 'account', params: { id: 1 }}">Account</router-link>
+                <router-link class="links m-left" :to="{name: 'account', params: { id: 2 }}">Account</router-link>
                 <!-- Mettre valeur de cookie_id sur le routeur link just au dessus -->
                 <!-- <router-link to="/account"><span class="links m-left">Account</span></router-link> -->
                 <!-- /account attend un id sinon il met une erreur -->
