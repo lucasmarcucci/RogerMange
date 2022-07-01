@@ -31,7 +31,7 @@ router.post("/order", jsonParser,(req, res) => {
     });
 });
 
-// get all order FAUT SUPPRIMER CA APRES
+// get all order
 router.get("/orders", (req, res) => {
   Order.find()
     .then((orders) => {

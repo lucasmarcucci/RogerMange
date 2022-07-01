@@ -30,7 +30,6 @@
 </template>
 
 <script>
-
 import axios from "axios";
 
 export default {
@@ -53,7 +52,6 @@ export default {
                 client_lastname: this.lastname,
                 client_email: this.email,
                 client_phonenumber: this.phone_number,
-                // client_address: this.address,
                 client_password: this.password,
             }
 
@@ -63,7 +61,6 @@ export default {
                 console.log(response)
             })
             .catch(e => {
-                // this.errors.push(e)
                 console.log(e)
             })
         }

@@ -1,57 +1,66 @@
 <template>
-
-    <div class="signin--card">
-        <div class="signin--title">
-            <p>Sign in to your account</p>
+  
+    <div class="profile--card">
+        <h2>Welcome {{ user_infos.client_firstname }}</h2>
+        <div class="profile--title">
+            <p>Edit your account</p>
         </div>
-        <form @submit.prevent="HandleForm" class="signin--form">
-            <label class="signin--label" for="email">Email</label>
+        <form @submit.prevent="HandleForm" class="profile--form">
+            <label class="profile--label" for="email">Email</label>
             <input class="input--general input--text" v-model="email" id="email" type="email" name="email">
 
-            <label class="signin--label" for="password">Password</label>
+            <label class="profile--label" for="password">Password</label>
             <input class="input--general input--text" v-model="password" id="password" type="password" name="password">
 
-            <input class="input--general input--submit" type="submit" name="submit" value="Sign in">
+            <label class="profile--label" for="confirm_password">Confirm password</label>
+            <input class="input--general input--text" v-model="confirm_password" id="confirm_password" type="password" name="confirm_password">
+
+            <input class="input--general input--submit" type="submit" name="submit" value="Save changes">
         </form>
+        <router-link :to="{name: 'orders', params: {id: user_infos.id }}">See your orders</router-link>
+        <!-- <router-link to="/orders"><span class="society--name">See your orders</span></router-link> -->
     </div>
 
 </template>
 
 <script>
-import axios from "axios";
+// import axios from "axios";
 
 export default {
-    name: "SignIn",
+    Name:"ProfileCard",
     data() {
         return {
             email: '',
             password: '',
+            confirm_password: ''
         }
     },
-    methods: {
-        HandleForm() {
-            const form_data = {
-                client_email: this.email,
-                client_password: this.password,
-            }
+    props: {
+        user_infos: Object
+    },
+    // methods: {
+    //     HandleForm() {
+    //         const form_data = {
+    //             client_email: this.email,
+    //             client_password: this.password,
+    //         }
 
-            axios
-            .post("http://localhost:8081/three/login/", form_data)
-            .then(response => {
-                // this.$cookie.set("token", response)
-                console.log(response)
-            })
-            .catch(e => {
-                console.log(e)
-            })
-        }
-    }
+    //         axios
+    //         .put("http://localhost:8081/two/register/" + this.user_infos, form_data)
+    //         .then(response => {
+    //             console.log(response)
+    //         })
+    //         .catch(e => {
+    //             console.log(e)
+    //         })
+    //     }
+    // }
 }
 </script>
 
 <style lang="scss">
 
-.signin--card {
+.profile--card {
     padding: 24px 48px 12px 48px;
     margin: 0px auto 40px auto;
     max-width: 390px;
@@ -59,7 +68,7 @@ export default {
     box-shadow: rgb(60 66 87 / 12%) 0px 7px 14px 0px, rgb(0 0 0 / 12%) 0px 3px 6px 0px;
     font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Ubuntu,sans-serif;
 
-    .signin--title {
+    .profile--title {
         font-size: 20px;
         line-height: 28px;
         color: #1a1f36;
@@ -70,9 +79,9 @@ export default {
         }
     }
 
-    .signin--form {
+    .profile--form {
 
-        .signin--label {
+        .profile--label {
             display: block;
             margin-bottom: 8px;
             font-size: 12px;

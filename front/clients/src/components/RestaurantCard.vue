@@ -21,7 +21,8 @@ export default {
 <style lang="scss">
 
 .restaurant--card {
-  width: 25%;
+  width: 350px;
+  margin-bottom: 50px;
   height: 160px;
   border-radius: 10px;
   overflow: hidden;
@@ -42,8 +43,14 @@ export default {
             margin: 0px;
             font-family: 'Roboto';
             font-weight: 600;
+            color: black;
         }
     }
+}
+
+.restaurant--card:hover {
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    transition: ease-in-out 0.3s;
 }
 
 </style>

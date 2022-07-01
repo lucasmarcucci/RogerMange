@@ -50,6 +50,10 @@ export default {
 
 <style lang="scss">
 
+.footer {
+  font-family: 'Roboto';
+}
+
 .footer--section {
     display: flex;
     flex-flow: row wrap;

@@ -3,7 +3,8 @@ import HomeView from '../views/HomeView.vue'
 import RestaurantView from '../views/RestaurantView.vue'
 import SignupView from '../views/SignupView.vue'
 import SigninView from '../views/SigninView.vue'
-// import CartView from '../views/CartView.vue'
+import AccountView from '../views/AccountView.vue'
+import OrdersView from '../views/OrdersView.vue'
 
 const routes = [
   {
@@ -27,6 +28,18 @@ const routes = [
     name: 'signin', 
     component: SigninView,
   },
+  {
+    path: '/account/:id',
+    name: 'account', 
+    component: AccountView,
+    props: true
+  },
+  {
+    path: '/orders/:id',
+    name: 'orders', 
+    component: OrdersView,
+    props: true
+  }
   // {
   //   path: '/cart',
   //   name: 'cart', 

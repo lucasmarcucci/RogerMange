@@ -32,9 +32,9 @@ export default {
                 this.errors.push(e)
         })
     },
-    props: {
-        all_restaurants: Object
-    }
+    // props: {
+    //     all_restaurants: Object
+    // }
 }
 </script>
 
@@ -46,6 +46,7 @@ export default {
     justify-content: space-around;
     margin-bottom: 40px;
     flex-direction: row;
+    flex-wrap: wrap;
 }
 
 </style>

@@ -2,7 +2,11 @@
   
     <div class="restaurant">
         <NavBar/>
-        <ProductCard :key="index" v-for="(product, index) in products" :info_product="product" />
+        <h2 class="products--title">Products :</h2>
+        <div class="products--cards">
+            <ProductCard :key="index" v-for="(product, index) in products" :info_product="product" />
+        </div>
+        <FooTer/>
     </div>
 
 </template>
@@ -10,34 +14,51 @@
 <script>
 import NavBar from '@/components/NavBar.vue'
 import ProductCard from '@/components/ProductCard.vue'
+import FooTer from '@/components/FooTer.vue'
 import axios from "axios";
 
 export default {
     name: "RestaurantView",
+    components: {
+        NavBar,
+        ProductCard,
+        FooTer
+    },
     data() {
         return {
             products: null
         }
     },
-    components: {
-        NavBar,
-        ProductCard
-    },
     mounted() {
         axios
-        .get("http://localhost:8080/restaurant/" + this.id)
+        .get("http://localhost:8081/one/restaurant/" + this.id)
         .then(response => {
             this.products = response.data['articles']
             console.log(this.products)
         })
         .catch(e => {
-                this.errors.push(e)
+            this.errors.push(e)
         })
     },
     props: ['id']
 }
 </script>
 
-<style>
+<style lang="scss">
+
+.products--title {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 28px;
+    margin-bottom: 100px;
+}
+
+.products--cards {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-bottom: 40px;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
 
 </style>

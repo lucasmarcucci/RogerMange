@@ -1,19 +1,15 @@
 <template>
-    <div class="menu">
-        <h2>Articles</h2>
-        <div class="menu-group">
-            <div class="menu-item">
-                <img class="menu-item-image" src="../assets/images/b1.png" alt="Bruschetta">
-                <div class="menu-item-text">
-                    <h3 class="menu-item-heading">
-                        <span class="menu-item-name">{{ info_product.article_name }}</span>
-                        <span class="menu-item-price">${{ info_product.article_price }}</span>
-                    </h3>
-                    <span><img src="../assets/images/plus.png" class="add-btn"></span>
-                </div>
-            </div>
-        </div>
-    </div>
+
+  <div class="menu-item">
+      <img class="menu-item-image" src="../assets/images/b1.png" alt="Bruschetta">
+      <div class="menu-item-text">
+          <h3 class="menu-item-heading">
+              <span class="menu-item-name">{{ info_product.article_name }}</span> | <span class="menu-item-price">${{ info_product.article_price }}</span>
+          </h3>
+      </div>
+      <!-- <span><img src="../assets/images/plus.png" class="add-btn"></span> -->
+  </div>
+
 </template>
 
 <script>
@@ -40,9 +36,11 @@ export default {
   
   .menu-item {
     display: flex;
-    box-shadow: 0px 0px 10px 0px rgba(128,119,119,0.75);
+    box-shadow: 0px 0px 8px 0px rgba(128,119,119,0.75);
     padding: 20px;
     border-radius: 5px;
+    width: 280px;
+    align-items: center;
   }
   
   .menu-item-image {
@@ -59,12 +57,9 @@ export default {
   
   .menu-item-heading {
     display: flex;
-    justify-content: space-between;
     margin: 0;
-  }
-  
-  .menu-item-name {
-    margin-right: 1.5em;
+    align-items: center;
+    justify-content: space-around;
   }
   
   .menu-item-description {
@@ -75,6 +70,11 @@ export default {
     width: 20px;
     height: 20px;
     cursor: pointer;
+  }
+
+  .menu-item:hover {
+    box-shadow: 0px 0px 12px 0px rgba(128,119,119,0.75);
+    transition: ease-in-out 0.2s;
   }
 
 </style>

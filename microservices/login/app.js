@@ -4,12 +4,12 @@ const express = require("express");
 const User = require("./model/User");
 const bcrypt = require("bcryptjs")
 const jwt = require("jsonwebtoken")
+// const cookieParser = require('cookie-parser')
 
 const app = express();
 
 app.use(express.json());
-
-// Logic goes here
+// app.use(cookieParser());
 
 module.exports = app;
 
@@ -23,7 +23,10 @@ app.listen(port, () => {
 
   app.post("/login", async (req, res) => {
 
-    const { email, password } = req.body;
+    const email = req.body.client_email;
+    const password = req.body.client_password
+
+    console.log(email, password)
   
     const user = await User.findOne({
         where: { client_email: email },
@@ -38,12 +41,17 @@ app.listen(port, () => {
                 expiresIn: "2h",
             }
         );
-        console.log("===================   "+token)
+        // res.cookie("token", token);
+        // console.log(token)
         res.send(token);
-        // return;
     } else {
         res.status(400).send("Invalid Credentials");
     }
+  });
+
+  app.post("/logout", async (req, res) => {
+    res.clearCookie("token");
+    res.send("Successfully disconnected")
   });
 
   // Login

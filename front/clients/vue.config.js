@@ -10,6 +10,14 @@ module.exports = {
             '/two': {
               target: 'http://localhost:3000/',
               pathRewrite: {'^/two' : ''}
+            },
+            '/three': {
+              target: 'http://localhost:3011/',
+              pathRewrite: {'^/three' : ''}
+            },
+            '/four': {
+              target: 'http://localhost:3010/',
+              pathRewrite: {'^/four' : ''}
             }
         }
     }
