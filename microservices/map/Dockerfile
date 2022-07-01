@@ -7,4 +7,6 @@ RUN npm install
 
 COPY . .
 
+EXPOSE 3040
+
 CMD [ "node", "add_point.js" ]

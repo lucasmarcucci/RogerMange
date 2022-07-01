@@ -7,7 +7,7 @@ const axios = require("axios");
 router.get("/stats/:id", async (req, res) => {
   try {
     const response = await axios.get(
-      "http://localhost:3010/restaurantorders/restaurant_id"
+      "http://localhost:3010/restaurantorders/" + req.params.id
     );
 
     orders = response.data;
@@ -54,12 +54,12 @@ function get_totalPrice_perMonth(data) {
   }, []);
 
   for (let i in grouped) {
+    returnvalue.push(grouped[i])
     console.log(grouped[i]);
   }
 
   //console.log(alldates);
 
-  returnvalue = [numberoforder, total];
   return returnvalue;
 }
 

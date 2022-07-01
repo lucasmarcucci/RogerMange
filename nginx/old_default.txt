@@ -20,3 +20,13 @@ http {
         }
     }
 }
+
+
+server {
+  listen 8080;
+  root /srv/www/static;
+  
+  location / {
+    proxy_pass http://localhost:3040/;
+  }
+}
