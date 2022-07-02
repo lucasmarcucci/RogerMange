@@ -72,11 +72,10 @@ router.delete("/restaurant/:id", (req, res) => {
 });
 
 // update one restaurant by id
-router.put("/restaurants/update/:id", (req, res) => {
+router.put("/restaurants/update/:id", jsonParser,(req, res) => {
   const filter = { _id: req.params.id };
   const update = {
     $set: {
-      restaurantID: req.body.restaurantID,
       image: req.body.image,
       name: req.body.name,
       address: req.body.address,
@@ -114,7 +113,7 @@ router.put("/restaurants/update/articles/:id", jsonParser,(req, res) => {
 });
 
 // delete one article by id
-router.put("/restaurants/delete/articles/:id", (req, res) => {
+router.put("/restaurants/delete/articles/:id", jsonParser, (req, res) => {
   const update = {
     $pull: {
       articles: { _id: req.body.id },

@@ -59,7 +59,7 @@ services:
     depends_on:
       - mysql
     ports:
-      - "8068"
+      - "8069"
 
   flask:
     build: ./microservices/map/python_api/flask
