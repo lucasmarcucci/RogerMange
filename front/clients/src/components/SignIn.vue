@@ -38,6 +38,9 @@ export default {
             axios
             .post("http://localhost:8081/three/login/", form_data)
             .then(response => {
+                this.$cookie.setCookie("token", response, {
+                    expire: '1d',
+                })
                 // this.$cookie.set("token", response)
                 console.log(response)
             })

@@ -29,6 +29,10 @@ const Account = db.define('account', {
     client_password: {
         type: Sequelize.STRING
     },
+
+    status: {
+        type: Sequelize.NUMBER
+    },
 })
 
 module.exports = Account;

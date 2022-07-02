@@ -53,6 +53,7 @@ export default {
                 client_email: this.email,
                 client_phonenumber: this.phone_number,
                 client_password: this.password,
+                client_status: 1
             }
 
             axios

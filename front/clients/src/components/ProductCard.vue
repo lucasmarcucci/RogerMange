@@ -41,6 +41,7 @@ export default {
     border-radius: 5px;
     width: 280px;
     align-items: center;
+    margin-bottom: 50px;
   }
   
   .menu-item-image {

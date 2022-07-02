@@ -68,6 +68,7 @@ router.put("/register/:id", (req, res) =>
 //create a new account
 router.post("/register", jsonParser, async (req, res) => {
   encryptedPassword = await bcrypt.hash(req.body.client_password, 10);
+  console.log(req.body)
   Account.create(
     {
       client_firstname: req.body.client_firstname,
@@ -77,6 +78,7 @@ router.post("/register", jsonParser, async (req, res) => {
       client_address: req.body.client_address,
       client_referralcode: req.body.client_referralcode,
       client_password: encryptedPassword,
+      status: req.body.client_status,
     }
   )
     .then((accounts) => {

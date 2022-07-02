@@ -2,4 +2,9 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
 
-createApp(App).use(router).mount('#app')
+// import { VueCookieNext } from 'vue-cookie-next'
+
+createApp(App)
+.use(router)
+// .use(VueCookieNext)
+.mount('#app')
