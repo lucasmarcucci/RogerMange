@@ -51,16 +51,28 @@ const store = createStore({
             //     token: user_Data.token
             // })
         },
-        loadUser() {
+        loadUser(state) {
             if(localStorage.getItem('user_data')) {
                 try {
-                    this.replaceState(JSON.parse(localStorage.getItem('user_data')));
+                    const localStoragedata = JSON.parse(localStorage.getItem('user_data'))
+                    state.user.id = localStoragedata.id,
+                    state.user.firstname = localStoragedata.firstname,
+                    state.user.email = localStoragedata.email,
+                    state.user.status = localStoragedata.status,
+                    state.user.token = localStoragedata.token
                 }
                 catch(e) {
                     console.log('Could not initialize store', e);
                 }
             }
-        }
+        },
+        logout(state) {
+            state.user.id = "",
+            state.user.firstname = "",
+            state.user.email = "",
+            state.user.status = "",
+            state.user.token = ""
+        },
     }
 })
 

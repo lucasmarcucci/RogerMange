@@ -2,7 +2,7 @@
   
     <div class="restaurant--orders">
         <NavBar/>
-        <GetAllProducts/>
+        <AddProducts/>
         <FooTer/>
     </div>
 
@@ -11,17 +11,19 @@
 <script>
 
 import NavBar from '@/components/NavBar.vue'
-import GetAllProducts from '@/components/GetAllProducts.vue'
+// import GetAllProducts from '@/components/GetAllProducts.vue'
 import FooTer from '@/components/FooTer.vue'
+import AddProducts from '@/components/AddProducts.vue'
 // import axios from "axios";
 
 export default {
     name: "RestaurantOrdersView",
     components: {
-        NavBar,
-        GetAllProducts,
-        FooTer,
-    }
+    NavBar,
+    // GetAllProducts,
+    FooTer,
+    AddProducts
+}
 }
 //     data() {
 //         return {

@@ -6,8 +6,9 @@
         </div>
         <div class="links--right">
             <router-link class="links" to="/map"><font-awesome-icon icon="fa-solid fa-location-dot" /><span class="m-left-10">Map</span></router-link>
-            <router-link class="links m-left-15" to="/signup"><font-awesome-icon icon="fa-solid fa-user-plus" /><span class="m-left-10">Register</span></router-link>
-            <router-link class="links m-left-15" to="/signin"><font-awesome-icon icon="fa-solid fa-right-to-bracket" /><span class="m-left-10">Log in</span></router-link>
+            <router-link v-if="is_notconnected()" class="links m-left-15" to="/signup"><font-awesome-icon icon="fa-solid fa-user-plus" /><span class="m-left-10">Register</span></router-link>
+            <router-link v-if="is_notconnected()" class="links m-left-15" to="/signin"><font-awesome-icon icon="fa-solid fa-right-to-bracket" /><span class="m-left-10">Log in</span></router-link>
+            <router-link v-if="!is_notconnected()" @click.prevent="logout" class="links m-left-15" to="/"><font-awesome-icon icon="fa-solid fa-right-to-bracket" /><span class="m-left-10">Log out</span></router-link>
             <router-link class="links m-left-15" to="/account"><font-awesome-icon icon="fa-solid fa-user" /><span class="m-left-10">Account</span></router-link>
         </div>
     </div>
@@ -34,11 +35,24 @@
 <script>
 export default {
     name: "NavBar",
-    // methods: {
-    //     is_connected() {
-        
-    //     }
-    // }
+    // beforeCreate() {
+    //     this.$store.commit('loadUser');
+    // },
+    methods: {
+        is_notconnected() {
+            this.$store.commit('loadUser');
+            var user = this.$store.getters.user
+            if(user['token'] == "") {
+                return true;
+            } else {
+                return false;
+            }
+        },
+        logout() {
+            this.$store.commit('logout')
+            this.$router.push('/');
+        }
+    }
 }
 </script>
 

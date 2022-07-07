@@ -46,6 +46,7 @@ export default {
                     status: response.data.client_status,
                     token: response.data.token,
                 })
+                // this.$store.commit('storeLocalStorage');
                 this.$router.push('/');
             })
             .catch(e => {
