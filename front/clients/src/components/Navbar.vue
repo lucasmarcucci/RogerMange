@@ -8,8 +8,9 @@
             <router-link class="links" to="/map"><font-awesome-icon icon="fa-solid fa-location-dot" /><span class="m-left-10">Map</span></router-link>
             <router-link v-if="is_notconnected()" class="links m-left-15" to="/signup"><font-awesome-icon icon="fa-solid fa-user-plus" /><span class="m-left-10">Register</span></router-link>
             <router-link v-if="is_notconnected()" class="links m-left-15" to="/signin"><font-awesome-icon icon="fa-solid fa-right-to-bracket" /><span class="m-left-10">Log in</span></router-link>
+            <router-link v-if="!is_notconnected()" class="links m-left-15" to="/cart"><font-awesome-icon icon="fa-solid fa-cart-shopping" /><span class="m-left-10">Cart</span></router-link>
             <router-link v-if="!is_notconnected()" @click.prevent="logout" class="links m-left-15" to="/"><font-awesome-icon icon="fa-solid fa-right-to-bracket" /><span class="m-left-10">Log out</span></router-link>
-            <router-link class="links m-left-15" to="/account"><font-awesome-icon icon="fa-solid fa-user" /><span class="m-left-10">Account</span></router-link>
+            <router-link v-if="!is_notconnected()" class="links m-left-15" to="/account"><font-awesome-icon icon="fa-solid fa-user" /><span class="m-left-10">Account</span></router-link>
         </div>
     </div>
   
@@ -75,6 +76,7 @@ export default {
 }
 
 .navbar {
+    background-color: white;
     display: flex;
     flex-direction: row;
     align-items: center;

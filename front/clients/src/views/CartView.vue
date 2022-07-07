@@ -1,28 +1,29 @@
 <template>
-  
-    <div class="signup">
+    <div class="cart--view">
         <NavBar/>
-        <SignUp/>
+        <ProductsCart/>
+        <FooTer/>
     </div>
-
 </template>
 
 <script>
 import NavBar from '@/components/NavBar.vue'
-import SignUp from '@/components/SignUp.vue'
+import ProductsCart from '@/components/ProductsCart.vue'
+import FooTer from '@/components/FooTer.vue'
 
 export default {
-    name: "SignupView",
+    name: "CartView",
     components: {
-        SignUp,
-        NavBar
-    },
+        NavBar,
+        ProductsCart,
+        FooTer,
+  },
 }
 </script>
 
 <style lang="scss">
 
-.signup {
+.cart--view {
     position: fixed;
     background-image: url(../../public/background.jpg);
     background-size: cover;

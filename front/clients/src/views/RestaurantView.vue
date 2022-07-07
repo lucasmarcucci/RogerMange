@@ -3,7 +3,7 @@
     <div class="restaurant">
         <NavBar/>
         <div class="container">
-            <h2 class="products--title">Products :</h2>
+            <h2 class="products--title"><span class="border-bottom">PRODUCTS</span></h2>
             <div class="products--cards">
                 <ProductCard :key="index" v-for="(product, index) in products" :info_product="product" />
             </div>
@@ -55,8 +55,9 @@ export default {
 
 .products--title {
     font-family: 'Source Sans 3', sans-serif;
-    font-size: 28px;
     margin-bottom: 100px;
+    text-align: center;
+    font-size: 35px;
 }
 
 .products--cards {

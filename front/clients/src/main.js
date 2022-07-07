@@ -1,5 +1,6 @@
 import { createApp } from 'vue'
 import { createStore } from 'vuex'
+import Notifications from 'notiwind'
 import App from './App.vue'
 import router from './router'
 
@@ -15,9 +16,11 @@ import { faUserPlus } from '@fortawesome/free-solid-svg-icons'
 import { faRightToBracket } from '@fortawesome/free-solid-svg-icons'
 import { faUser } from '@fortawesome/free-solid-svg-icons'
 import { faLocationDot } from '@fortawesome/free-solid-svg-icons'
+import { faCartShopping } from '@fortawesome/free-solid-svg-icons'
+import { faXmark } from '@fortawesome/free-solid-svg-icons'
 
 /* add icons to the library */
-library.add(faUserSecret, faUserPlus, faUser, faRightToBracket, faLocationDot)
+library.add(faUserSecret, faUserPlus, faUser, faRightToBracket, faLocationDot, faCartShopping, faXmark)
 
 const store = createStore({
     state () {
@@ -82,6 +85,7 @@ store.subscribe((mutation, state) => {
 
 createApp(App)
 .use(store)
+.use(Notifications)
 .use(router)
 .component('font-awesome-icon', FontAwesomeIcon)
 .mount('#app')

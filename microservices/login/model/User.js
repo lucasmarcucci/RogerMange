@@ -15,7 +15,7 @@ const User = db.define('accounts', {
         type: Sequelize.STRING
     },    
 
-    status: {
+    client_status: {
         type: Sequelize.NUMBER
     },
 

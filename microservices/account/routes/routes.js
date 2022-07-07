@@ -43,7 +43,7 @@ router.delete("/register/:id", (req, res) =>
 );
 
 // update one user by ID
-router.put("/register/:id", (req, res) =>
+router.put("/register/:id", jsonParser, (req, res) =>
   Account.update(
     {
       // client_firstname: req.body.client_firstname,
@@ -59,7 +59,7 @@ router.put("/register/:id", (req, res) =>
     }
   )
     .then((accounts) => {
-      console.log(accounts);
+      console.log(req.body);
       res.send(accounts);
     })
     .catch((err) => console.log(err))

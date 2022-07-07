@@ -1,14 +1,22 @@
 <template>
 
-  <div class="menu-item">
+  <div class="product--card">
+      <div class="product--image"></div>
+      <div class="product--informations">
+          <p class="name"></p>
+          <p class="price"></p>
+      </div>
+  </div>
+
+  <!-- <div class="menu-item">
       <img class="menu-item-image" src="../assets/images/b1.png" alt="Bruschetta">
       <div class="menu-item-text">
           <h3 class="menu-item-heading">
               <span class="menu-item-name">{{ info_product.article_name }}</span> | <span class="menu-item-price">${{ info_product.article_price }}</span>
           </h3>
       </div>
-      <!-- <span><img src="../assets/images/plus.png" class="add-btn"></span> -->
-  </div>
+      <span><img src="../assets/images/plus.png" class="add-btn"></span>
+  </div> -->
 
 </template>
 

@@ -2,7 +2,7 @@
   <div class="home">
     <NavBar/>
     <div class="container">
-      <h2 class="restaurants--title">Restaurants :</h2>
+      <h2 class="restaurants--title"><span class="border-bottom">RESTAURANTS</span></h2>
       <div class="restaurant--cards">
         <RestaurantCard :key="index" v-for="(restaurant, index) in restaurants" :info_restaurant="restaurant" />
       </div>
@@ -52,8 +52,9 @@ export default {
 
 .restaurants--title {
   font-family: "Source Sans 3", sans-serif;
-  font-size: 28px;
+  font-size: 35px;
   margin-bottom: 100px;
+  text-align: center;
 }
 
 .restaurant--cards {

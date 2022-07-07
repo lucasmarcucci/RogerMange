@@ -30,7 +30,7 @@ const Account = db.define('account', {
         type: Sequelize.STRING
     },
 
-    status: {
+    client_status: {
         type: Sequelize.NUMBER
     },
 })

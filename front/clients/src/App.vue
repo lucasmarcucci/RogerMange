@@ -1,9 +1,7 @@
 <template>
-
-  <div id="app">
-    <router-view/>
-  </div>
-
+    <div id="app">
+      <router-view/>
+    </div>
 </template>
 
 <script>
@@ -47,5 +45,9 @@ body {
   a {
     text-decoration: none;
   }
+}
+
+.border-bottom {
+    border-bottom: 3px solid rgb(84, 105, 212);;
 }
 </style>

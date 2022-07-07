@@ -60,6 +60,7 @@ export default {
 <style lang="scss">
 
 .signin--card {
+    background-color: white;
     padding: 24px 48px 12px 48px;
     margin: 0px auto 40px auto;
     max-width: 390px;

@@ -10,7 +10,7 @@
           <address>
             13 Av. Simone Veil, 06200 Nice<br>
                 
-            <a class="footer__btn" href="mailto:example@gmail.com">Nous écrire</a>
+            <a class="footer__btn" href="mailto:example@gmail.com">Contact us</a>
           </address>
         </div>
         
@@ -20,11 +20,11 @@
             
             <ul class="nav__ul">
               <li>
-                <a href="#">Politique de confidentialité</a>
+                <a href="#">Privacy Policy</a>
               </li>
               
               <li>
-                <a href="#">Conditions d'utilisation</a>
+                <a href="#">Terms of use</a>
               </li>
             </ul>
           </li>

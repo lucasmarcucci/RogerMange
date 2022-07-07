@@ -4,6 +4,7 @@
         <div class="restaurant--image"></div>
         <div class="restaurant--informations">
             <p class="name">{{ info_restaurant.name }}</p>
+            <p class="address">{{ info_restaurant.address }}</p>
         </div>
     </router-link>
 
@@ -23,7 +24,7 @@ export default {
 .restaurant--card {
   width: 350px;
   margin-bottom: 50px;
-  height: 160px;
+  height: 200px;
   border-radius: 10px;
   overflow: hidden;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
@@ -44,6 +45,11 @@ export default {
             font-family: 'Roboto';
             font-weight: 600;
             color: black;
+        }
+
+        .address {
+            font-weight: 300;
+            margin-top: 5px;
         }
     }
 }

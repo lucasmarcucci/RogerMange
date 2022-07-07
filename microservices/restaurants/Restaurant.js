@@ -11,7 +11,7 @@ const articlesSchema = mongoose.Schema({
       require: false
   },
   article_price: {
-    type: String,
+    type: Number,
     require: false
   },
   article_category: {

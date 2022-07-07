@@ -5,12 +5,13 @@
         <div class="profile--title">
             <p>Edit your account</p>
         </div>
+        <div style="margin-bottom: 10px" class="success" v-if="message">{{ this.message }}</div>
         <form @submit.prevent="HandleForm" class="profile--form">
             <label class="profile--label" for="email">Email</label>
-            <input class="input--general input--text" v-model="email" id="email" type="email" name="email">
+            <input class="input--general input--text" v-model="email" id="email" type="email" name="email" :placeholder="user_infos.client_email">
 
             <label class="profile--label" for="password">Password</label>
-            <input class="input--general input--text" v-model="password" id="password" type="password" name="password">
+            <input class="input--general input--text" v-model="password" id="password" type="password" name="password" placeholder="new password">
 
             <!-- <label class="profile--label" for="confirm_password">Confirm password</label>
             <input class="input--general input--text" v-model="confirm_password" id="confirm_password" type="password" name="confirm_password"> -->
@@ -32,6 +33,7 @@ export default {
         return {
             email: '',
             password: '',
+            message: undefined
         }
     },
     props: {
@@ -48,9 +50,11 @@ export default {
             .put("http://localhost:8081/two/register/" + this.user_infos.id, form_data)
             .then(response => {
                 console.log(response)
+                this.message = 'Account updated'
             })
             .catch(e => {
                 console.log(e)
+                this.message = false
             })
         }
     }
@@ -59,7 +63,12 @@ export default {
 
 <style lang="scss">
 
+.success {
+    color: var(--uber-green);
+}
+
 .profile--card {
+    background-color: white;
     padding: 24px 48px 12px 48px;
     margin: 0px auto 40px auto;
     max-width: 390px;

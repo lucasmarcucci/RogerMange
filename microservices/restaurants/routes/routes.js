@@ -114,7 +114,7 @@ router.put("/restaurants/update/articles/:id", jsonParser, (req, res) => {
 });
 
 // delete one article by id
-router.put("/restaurants/delete/articles/:id", (req, res) => {
+router.put("/restaurants/delete/articles/:id", jsonParser, (req, res) => {
   const update = {
     $pull: {
       articles: { _id: req.body.id },
