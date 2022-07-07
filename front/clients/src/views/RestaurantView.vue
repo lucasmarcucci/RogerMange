@@ -2,9 +2,11 @@
   
     <div class="restaurant">
         <NavBar/>
-        <h2 class="products--title">Products :</h2>
-        <div class="products--cards">
-            <ProductCard :key="index" v-for="(product, index) in products" :info_product="product" />
+        <div class="container">
+            <h2 class="products--title">Products :</h2>
+            <div class="products--cards">
+                <ProductCard :key="index" v-for="(product, index) in products" :info_product="product" />
+            </div>
         </div>
         <FooTer/>
     </div>
@@ -46,6 +48,11 @@ export default {
 
 <style lang="scss">
 
+.container {
+  width: 90%;
+  margin: auto;
+}
+
 .products--title {
     font-family: 'Source Sans 3', sans-serif;
     font-size: 28px;
@@ -55,7 +62,7 @@ export default {
 .products--cards {
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: flex-start;
     margin-bottom: 40px;
     flex-direction: row;
     flex-wrap: wrap;

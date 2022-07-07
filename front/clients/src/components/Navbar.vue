@@ -2,7 +2,7 @@
 
     <div class="navbar">
         <div class="links--left">
-            <router-link class="bold black" to="/map"><span id="logo">Roger<span class="m-left-10 blue">Mange</span></span></router-link>
+            <router-link class="bold black" to="/"><span id="logo">Roger<span class="m-left-10 blue">Mange</span></span></router-link>
         </div>
         <div class="links--right">
             <router-link class="links" to="/map"><font-awesome-icon icon="fa-solid fa-location-dot" /><span class="m-left-10">Map</span></router-link>
@@ -100,6 +100,12 @@ export default {
         flex-direction: row;
         align-items: center;
     }
+}
+
+@media screen and (max-width: 740px) {
+  .navbar {
+    flex-direction: column;
+  }
 }
 
 </style>

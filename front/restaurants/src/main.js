@@ -2,9 +2,26 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
 
-// import { VueCookieNext } from 'vue-cookie-next'
+/* import the fontawesome core */
+import { library } from '@fortawesome/fontawesome-svg-core'
+
+/* import font awesome icon component */
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+
+/* import specific icons */
+import { faUserSecret } from '@fortawesome/free-solid-svg-icons'
+import { faUserPlus } from '@fortawesome/free-solid-svg-icons'
+import { faRightToBracket } from '@fortawesome/free-solid-svg-icons'
+import { faUser } from '@fortawesome/free-solid-svg-icons'
+import { faLocationDot } from '@fortawesome/free-solid-svg-icons'
+import { faCheck } from '@fortawesome/free-solid-svg-icons'
+import { faXmark } from '@fortawesome/free-solid-svg-icons'
+import { faPenToSquare } from '@fortawesome/free-solid-svg-icons'
+
+/* add icons to the library */
+library.add(faUserSecret, faUserPlus, faUser, faRightToBracket, faLocationDot, faCheck, faXmark, faPenToSquare)
 
 createApp(App)
 .use(router)
-// .use(VueCookieNext)
+.component('font-awesome-icon', FontAwesomeIcon)
 .mount('#app')

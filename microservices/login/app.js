@@ -27,15 +27,16 @@ app.post("/login", async (req, res) => {
   if(user && (await bcrypt.compare(password, user.toJSON().client_password))) {
 
       const token = jwt.sign({ id: user.toJSON().id, status: user.toJSON().status }, process.env.JWT_SECRET, {expiresIn: "2h"});
-      res.send(token);
+      user.dataValues['token'] = token
+      res.send(user);
   } else {
       res.status(400).send("Invalid Credentials");
   }
 });
 
-app.post("/logout", async (req, res) => {
-  res.send("Successfully disconnected")
-});
+// app.post("/logout", async (req, res) => {
+//   res.send("Successfully disconnected")
+// });
 
 app.get("/welcome", auth, (req, res) => {
   res.status(200).send("Welcome 🙌 ");

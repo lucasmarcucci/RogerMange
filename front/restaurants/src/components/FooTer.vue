@@ -3,7 +3,7 @@
     <div class="footer">
         <footer class="footer--section">
         <div class="footer__addr">
-          <span id="logo" class="footer__logo">Roger  <span style="color: green;"><b>Mange</b></span></span>
+          <span id="logo" class="footer__logo">Roger  <span class="blue"><b>Mange</b></span></span>
               
           <h2>Contact</h2>
           
@@ -52,6 +52,10 @@ export default {
 
 .footer {
   font-family: 'Roboto';
+}
+
+.blue {
+  color: var(--uber-blue);
 }
 
 .footer--section {

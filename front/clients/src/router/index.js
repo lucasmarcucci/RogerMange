@@ -29,7 +29,7 @@ const routes = [
     component: SigninView,
   },
   {
-    path: '/account/:id',
+    path: '/account',
     name: 'account', 
     component: AccountView,
     props: true

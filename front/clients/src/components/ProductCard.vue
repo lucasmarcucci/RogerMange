@@ -39,9 +39,10 @@ export default {
     box-shadow: 0px 0px 8px 0px rgba(128,119,119,0.75);
     padding: 20px;
     border-radius: 5px;
-    width: 280px;
+    width: 200px;
     align-items: center;
     margin-bottom: 50px;
+    margin: 0px 10px 40px 10px;
   }
   
   .menu-item-image {

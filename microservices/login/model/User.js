@@ -3,6 +3,10 @@ const db = require('../config/database');
 
 const User = db.define('accounts', {
 
+    client_firstname: {
+        type: Sequelize.STRING
+    },
+
     client_email: {
         type: Sequelize.STRING
     },
@@ -11,8 +15,8 @@ const User = db.define('accounts', {
         type: Sequelize.STRING
     },    
 
-    token: {
-        type: Sequelize.STRING
+    status: {
+        type: Sequelize.NUMBER
     },
 
 })

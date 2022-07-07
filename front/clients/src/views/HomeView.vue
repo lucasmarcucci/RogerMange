@@ -1,8 +1,11 @@
 <template>
   <div class="home">
     <NavBar/>
-    <div class="restaurant--cards">
-      <RestaurantCard :key="index" v-for="(restaurant, index) in restaurants" :info_restaurant="restaurant" />
+    <div class="container">
+      <h2 class="restaurants--title">Restaurants :</h2>
+      <div class="restaurant--cards">
+        <RestaurantCard :key="index" v-for="(restaurant, index) in restaurants" :info_restaurant="restaurant" />
+      </div>
     </div>
     <FooTer/>
   </div>
@@ -42,13 +45,24 @@ export default {
 
 <style lang="scss">
 
+.container {
+  width: 90%;
+  margin: auto;
+}
+
+.restaurants--title {
+  font-family: "Source Sans 3", sans-serif;
+  font-size: 28px;
+  margin-bottom: 100px;
+}
+
 .restaurant--cards {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    margin-bottom: 40px;
-    flex-direction: row;
-    flex-wrap: wrap;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 40px;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
 </style>

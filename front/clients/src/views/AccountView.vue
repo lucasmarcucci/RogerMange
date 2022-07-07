@@ -14,7 +14,7 @@ import axios from "axios";
 import NavBar from '@/components/NavBar.vue'
 import ProfileCard from '@/components/ProfileCard.vue'
 import FooTer from '@/components/FooTer.vue'
-// import ref from 'vue'
+import { useStore } from 'vuex'
 
 export default {
     Name:"AccountView",
@@ -29,8 +29,13 @@ export default {
         FooTer,
     },
     beforeCreate() {
+        const store = useStore()
+        store.commit('loadUser');
+        const user = JSON.stringify(this.$store.getters.user)
+        console.log(user)
+
         axios
-        .get("http://localhost:8081/two/register/" + this.id)
+        .get("http://localhost:8081/two/register/")
         .then(response => {
             // this.user_infos = ref({})
             this.user_infos = response.data
@@ -40,7 +45,7 @@ export default {
             console.log(e)
         })
     },
-    props: ['id']
+    // props: ['id']
 }
 
 </script>

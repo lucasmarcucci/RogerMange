@@ -1,64 +1,35 @@
 <template>
-
-    <div class="signin--card">
-        <div class="signin--title">
-            <p>Sign in to your account</p>
+  
+    <div class="addproducts--card">
+        <div class="addproducts--title">
+            <h4>Add a new product</h4>
         </div>
-        <form @submit.prevent="HandleForm" class="signin--form">
-            <label class="signin--label" for="email">Email</label>
-            <input class="input--general input--text" v-model="email" id="email" type="email" name="email">
+        <form @submit.prevent="HandleForm" class="addproducts--form">
+            <label class="addproducts--label" for="image">Image</label>
+            <input class="input--general input--text" id="image" type="file" name="image">
 
-            <label class="signin--label" for="password">Password</label>
-            <input class="input--general input--text" v-model="password" id="password" type="password" name="password">
+            <label class="addproducts--label" for="name">Name</label>
+            <input class="input--general input--text" v-model="name" id="name" type="text" name="name">
 
-            <input class="input--general input--submit" type="submit" name="submit" value="Sign in">
+            <label class="addproducts--label" for="price">Price</label>
+            <input class="input--general input--text" v-model="price" id="price" type="number" name="price">
+
+            <input class="input--general input--submit" type="submit" name="submit" value="Add">
         </form>
     </div>
 
 </template>
 
 <script>
-import axios from "axios";
 
 export default {
-    name: "SignIn",
-    data() {
-        return {
-            email: '',
-            password: '',
-        }
-    },
-    methods: {
-        HandleForm() {
-            const form_data = {
-                client_email: this.email,
-                client_password: this.password,
-            }
-
-            axios
-            .post("http://localhost:8081/three/login/", form_data)
-            .then(response => {
-                console.log(response.data)
-                this.$store.commit('storeUser', {
-                    id: response.data.id,
-                    firstname: response.data.client_firstname,
-                    email: response.data.client_email,
-                    status: response.data.client_status,
-                    token: response.data.token,
-                })
-                this.$router.push('/');
-            })
-            .catch(e => {
-                console.log(e)
-            })
-        }
-    }
+    name: "AddProducts"
 }
 </script>
 
 <style lang="scss">
 
-.signin--card {
+.addproducts--card {
     padding: 24px 48px 12px 48px;
     margin: 0px auto 40px auto;
     max-width: 390px;
@@ -66,20 +37,25 @@ export default {
     box-shadow: rgb(60 66 87 / 12%) 0px 7px 14px 0px, rgb(0 0 0 / 12%) 0px 3px 6px 0px;
     font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Ubuntu,sans-serif;
 
-    .signin--title {
+    .addproducts--title {
         font-size: 20px;
         line-height: 28px;
         color: #1a1f36;
         margin-bottom: 30px;
 
-        p {
+        h4 {
             margin: 0;
         }
     }
 
-    .signin--form {
+    .addproducts--form {
 
-        .signin--label {
+        input[type="text"] {
+            letter-spacing: 0px;
+            font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Ubuntu,sans-serif;
+        }
+
+        .addproducts--label {
             display: block;
             margin-bottom: 8px;
             font-size: 12px;
@@ -94,6 +70,7 @@ export default {
             margin-bottom: 20px;
             border-radius: 4px;
             border: unset;
+            box-sizing: border-box;
         }
 
         .input--text {
@@ -107,6 +84,7 @@ export default {
             color: #fff;
             font-weight: 500;
             cursor: pointer;
+            font-weight: bold;
         }
 
         .input--submit:hover {
