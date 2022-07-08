@@ -46,7 +46,13 @@ const routes = [
     name: 'cart', 
     component: CartView,
     props: true
-  }
+  },
+  // {
+  //   path: '/cart',
+  //   name: 'cart', 
+  //   component: CartView,
+  //   props: true
+  // }
   // {
   //   path: '/cart',
   //   name: 'cart', 

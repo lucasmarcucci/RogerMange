@@ -18,9 +18,10 @@ import { faUser } from '@fortawesome/free-solid-svg-icons'
 import { faLocationDot } from '@fortawesome/free-solid-svg-icons'
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons'
 import { faXmark } from '@fortawesome/free-solid-svg-icons'
+import { faCartPlus } from '@fortawesome/free-solid-svg-icons'
 
 /* add icons to the library */
-library.add(faUserSecret, faUserPlus, faUser, faRightToBracket, faLocationDot, faCartShopping, faXmark)
+library.add(faUserSecret, faUserPlus, faUser, faRightToBracket, faLocationDot, faCartShopping, faXmark, faCartPlus)
 
 const store = createStore({
     state () {
@@ -31,12 +32,19 @@ const store = createStore({
             email: "",
             status:"",
             token: ""
+        },
+        cart: {
+            articles: [],
+            totalPrice: 0
         }
       }
     },
     getters: {
         user(state) {
             return state.user;
+        },
+        cart(state) {
+            return state.cart
         }
     },
     mutations: {
@@ -46,15 +54,8 @@ const store = createStore({
             state.user.email = user_Data.email,
             state.user.status = user_Data.status,
             state.user.token = user_Data.token
-            // state.user.push({
-            //     id: user_Data.id,
-            //     firstname: user_Data.firstname,
-            //     email: user_Data.email,
-            //     status: user_Data.status,
-            //     token: user_Data.token
-            // })
         },
-        loadUser(state) {
+        loadLocalStorage(state) {
             if(localStorage.getItem('user_data')) {
                 try {
                     const localStoragedata = JSON.parse(localStorage.getItem('user_data'))
@@ -68,7 +69,22 @@ const store = createStore({
                     console.log('Could not initialize store', e);
                 }
             }
+            if(localStorage.getItem('cart_data')) {
+                try {
+                    const localStorageCartData = JSON.parse(localStorage.getItem('cart_data'))
+                    // console.log(localStorageCartData)
+                    state.cart.totalPrice = localStorageCartData.totalPrice,
+                    state.cart.articles = localStorageCartData.articles
+                    console.log(state.cart)
+                }
+                catch(e) {
+                    console.log('Could not initialize store', e);
+                }
+            }
         },
+        // loadUser(state) {
+            
+        // },
         logout(state) {
             state.user.id = "",
             state.user.firstname = "",
@@ -76,11 +92,21 @@ const store = createStore({
             state.user.status = "",
             state.user.token = ""
         },
+        addItemToCart(state, item) {
+            state.cart.articles.push(item)
+            state.cart.totalPrice += item.price
+            console.log('addItemToCart')
+            console.log(state.cart)
+        },
+        // loadCart(state) {
+            
+        // },
     }
 })
 
 store.subscribe((mutation, state) => {
     localStorage.setItem('user_data', JSON.stringify(state.user));
+    localStorage.setItem('cart_data', JSON.stringify(state.cart));
 })
 
 createApp(App)

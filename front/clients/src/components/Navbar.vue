@@ -36,12 +36,12 @@
 <script>
 export default {
     name: "NavBar",
-    // beforeCreate() {
-    //     this.$store.commit('loadUser');
-    // },
+    beforeCreate() {
+        this.$store.commit('loadLocalStorage');
+    },
     methods: {
         is_notconnected() {
-            this.$store.commit('loadUser');
+            // this.$store.commit('loadLocalStorage');
             var user = this.$store.getters.user
             if(user['token'] == "") {
                 return true;
