@@ -30,4 +30,8 @@ body {
     text-decoration: none;
   }
 }
+
+.border-bottom {
+    border-bottom: 3px solid rgb(84, 105, 212);;
+}
 </style>

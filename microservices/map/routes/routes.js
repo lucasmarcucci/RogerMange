@@ -13,7 +13,7 @@ router.get('/getpoint', async (req, res) => {
       restaurants = response_restaurant.data;
   
       const response_python = await axios.post(
-        "http://localhost:5000/coordinates",
+        "http://127.0.0.1:81/coordinates",
         restaurants
       );
   

@@ -59,6 +59,23 @@ services:
     #   - mysql
     ports:
       - "8068:80"
+      
+  flask:
+    build: ./microservices/map/python_api/flask
+    container_name: flask
+    restart: always
+    environment: 
+      - APP_NAME=MyFlaskApp
+      - DB_USERNAME=example
+    expose: 
+      - 8181
+    
+  nginx_python:
+    build: ./microservices/map/python_api/nginx
+    container_name: nginx_python
+    restart: always
+    ports: 
+      - "81:81"
 
 # Names our volume
 volumes:

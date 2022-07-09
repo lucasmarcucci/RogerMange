@@ -9,6 +9,7 @@ var jsonParser = bodyParser.json();
 // add restaurant
 router.post("/restaurant", jsonParser,(req, res) => {
   var newRestaurant = new Restaurant({
+    id_restaurateur: req.body.id_restaurateur,
     image: req.body.image,
     name: req.body.name,
     address: req.body.address,
@@ -64,6 +65,21 @@ router.delete("/restaurant/:id", (req, res) => {
         res.json("Restaurant deleted Successfully!");
       } else {
         res.status(404).send("Restaurant Not found!");
+      }
+    })
+    .catch((err) => {
+      res.status(500).send("Internal Server Error!");
+    });
+});
+
+// get one restaurant by people
+router.post("/restaurant_id", jsonParser, (req, res) => {
+  Restaurant.find({ "id_restaurateur" : req.body.id_restaurateur})
+    .then((restaurants) => {
+      if (restaurants.length !== 0) {
+        res.json(restaurants);
+      } else {
+        res.status(404).send("Restaurants not found");
       }
     })
     .catch((err) => {

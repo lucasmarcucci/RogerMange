@@ -1,6 +1,5 @@
 import { createApp } from 'vue'
 import { createStore } from 'vuex'
-import Notifications from 'notiwind'
 import App from './App.vue'
 import router from './router'
 
@@ -82,9 +81,6 @@ const store = createStore({
                 }
             }
         },
-        // loadUser(state) {
-            
-        // },
         logout(state) {
             state.user.id = "",
             state.user.firstname = "",
@@ -98,9 +94,6 @@ const store = createStore({
             console.log('addItemToCart')
             console.log(state.cart)
         },
-        // loadCart(state) {
-            
-        // },
     }
 })
 
@@ -111,7 +104,6 @@ store.subscribe((mutation, state) => {
 
 createApp(App)
 .use(store)
-.use(Notifications)
 .use(router)
 .component('font-awesome-icon', FontAwesomeIcon)
 .mount('#app')

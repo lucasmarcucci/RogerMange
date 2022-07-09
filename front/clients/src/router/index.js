@@ -6,6 +6,7 @@ import SigninView from '../views/SigninView.vue'
 import AccountView from '../views/AccountView.vue'
 import OrdersView from '../views/OrdersView.vue'
 import CartView from '../views/CartView.vue'
+import MapView from '../views/MapView.vue'
 
 const routes = [
   {
@@ -47,12 +48,12 @@ const routes = [
     component: CartView,
     props: true
   },
-  // {
-  //   path: '/cart',
-  //   name: 'cart', 
-  //   component: CartView,
-  //   props: true
-  // }
+  {
+    path: '/map',
+    name: 'map', 
+    component: MapView,
+    props: true
+  }
   // {
   //   path: '/cart',
   //   name: 'cart', 

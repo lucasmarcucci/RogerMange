@@ -25,6 +25,10 @@ const articlesSchema = mongoose.Schema({
 })
 
 const restaurantSchema = mongoose.Schema({
+    id_restaurateur: {
+      type: String,
+      require: true
+    },
    image: {
       type: String,
       require: true

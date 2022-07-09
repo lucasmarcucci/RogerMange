@@ -11,16 +11,10 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td class="fw-bold">UNA6AFAG6</td>
-                    <td>Pizza Reine</td>
-                    <td class="ta-center">11.99$</td>
-                    <td class="table--icons"><a href="#"><font-awesome-icon icon="fa-solid fa-pen-to-square" /></a></td>
-                </tr>
-                <tr>
-                    <td class="fw-bold">ABubakuebfa</td>
-                    <td>CheeseBurger</td>
-                    <td class="ta-center">9.99$</td>
+                <tr :key="index" v-for="(article, index) in user_infos.articles">
+                    <td class="fw-bold">{{ article._id }}</td>
+                    <td>{{ article.article_name }}</td>
+                    <td class="ta-center">${{ article.article_price }}</td>
                     <td class="table--icons"><a href="#"><font-awesome-icon icon="fa-solid fa-pen-to-square" /></a></td>
                 </tr>
             </tbody>
@@ -32,6 +26,13 @@
 <script>
 export default {
     name: "GetAllProducts",
+    props: {
+        user_infos: Object
+    },
+    // created() {
+    //     console.log('this.user_infos')
+    //     console.log(this.user_infos)
+    // },
 }
 </script>
 
